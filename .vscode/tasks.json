@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "1. Build Java Backend (Compile & WAR)",
+      "type": "shell",
+      "command": "javac -cp \"backend/WebContent/WEB-INF/lib/*;backend/bin\" -d backend/WebContent/WEB-INF/classes backend/src/com/campushub/model/*.java backend/src/com/campushub/util/*.java backend/src/com/campushub/servlet/*.java; jar -cvf backend/CampusHub.war -C backend/WebContent .",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$javac"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "2. Start React Frontend (npm run dev)",
+      "type": "shell",
+      "command": "npm run dev",
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "3. Import Database (MySQL)",
+      "type": "shell",
+      "command": "mysql -u root -p campus_event_db < schema.sql",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    }
+  ]
+}

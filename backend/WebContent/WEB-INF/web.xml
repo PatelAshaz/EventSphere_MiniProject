@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>CampusHub</display-name>
+    <description>Campus Tech Club and Event Management Hub Backend</description>
+
+    <!-- CORS Filter Mapping -->
+    <filter>
+        <filter-name>CorsFilter</filter-name>
+        <filter-class>com.campushub.servlet.CorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CorsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Event Servlet -->
+    <servlet>
+        <servlet-name>EventServlet</servlet-name>
+        <servlet-class>com.campushub.servlet.EventServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EventServlet</servlet-name>
+        <url-pattern>/api/events/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EventServlet</servlet-name>
+        <url-pattern>/api/events</url-pattern>
+    </servlet-mapping>
+
+    <!-- Registration Servlet -->
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.campushub.servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/api/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/api/registrations</url-pattern>
+    </servlet-mapping>
+
+</web-app>
